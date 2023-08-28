@@ -25,7 +25,7 @@ class _StyleOneOneState extends State<StyleOneOne> {
     const TabHome(),
     const TabProfile(),
   ];
-  double heightNavigation = 58;
+  double heightNavigation = 55;
   @override
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
@@ -54,29 +54,35 @@ class _StyleOneOneState extends State<StyleOneOne> {
               onPressed: () {
                 bottomTapped(1);
               },
+                elevation: 5.0,
               child:  Icon(
                 Icons.calendar_month_outlined,
                 color: currentIndex==1?Colors.white:Colors.black26,
               ),
-              //  elevation: 5.0,
             ),
           ),
-          Container(
+          SizedBox(
             width: size.width,
             height: heightNavigation,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                customTab('menu_book','Thư viện',currentIndex == 0?true:false,(){
-                  bottomTapped(0);
-                }),
+                const SizedBox(height: 12,),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    customTab('menu_book','Thư viện',currentIndex == 0?true:false,(){
+                      bottomTapped(0);
+                    }),
 
-                Container(
-                  width: size.width * 0.20,
+                    Container(
+                      width: size.width * 0.20,
+                    ),
+                    customTab('menu_profile','Hồ sơ',currentIndex == 2?true:false,(){
+                      bottomTapped(2);
+                    }),
+                  ],
                 ),
-                customTab('menu_profile','Hồ sơ',currentIndex == 2?true:false,(){
-                  bottomTapped(2);
-                }),
               ],
             ),
           )

@@ -15,7 +15,7 @@ class StyleOne extends StatefulWidget {
 
 class _StyleOneState extends State<StyleOne> {
   int currentIndex = 1;
-  double heightNavigation = 58;
+  double heightNavigation = 55;
   List<Widget> listScreen = [
     const TabLibrary(),
     const TabHome(),
@@ -47,7 +47,7 @@ class _StyleOneState extends State<StyleOne> {
          Positioned(
            bottom: 0,
            left: 0,
-           child: Container(
+           child: SizedBox(
              width: size.width,
              height: heightNavigation,
              child: Stack(
@@ -70,29 +70,35 @@ class _StyleOneState extends State<StyleOne> {
                          currentIndex =1;
                        });
                      },
+                       elevation: 5.0,
                      child:  Icon(
                        Icons.calendar_month_outlined,
                        color: currentIndex==1?Colors.white:Colors.black26,
                      ),
-                     //  elevation: 5.0,
                    ),
                  ),
-                 Container(
+                 SizedBox(
                    width: size.width,
-                   height: 80,
-                   child: Row(
-                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                   height: heightNavigation,
+                   child: Column(
+                     mainAxisAlignment: MainAxisAlignment.center,
                      children: [
-                       customTab('menu_book','Thư viện',currentIndex == 0?true:false,(){
-                         pageChanged(0);
-                       }),
+                       const SizedBox(height: 12,),
+                       Row(
+                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                         children: [
+                           customTab('menu_book','Thư viện',currentIndex == 0?true:false,(){
+                             pageChanged(0);
+                           }),
 
-                       Container(
-                         width: size.width * 0.20,
+                           Container(
+                             width: size.width * 0.20,
+                           ),
+                           customTab('menu_profile','Hồ sơ',currentIndex == 2?true:false,(){
+                             pageChanged(2);
+                           }),
+                         ],
                        ),
-                       customTab('menu_profile','Hồ sơ',currentIndex == 2?true:false,(){
-                         pageChanged(2);
-                       }),
                      ],
                    ),
                  )

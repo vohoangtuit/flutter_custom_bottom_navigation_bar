@@ -40,14 +40,14 @@ List<BottomNavigationBarItem> listTabsWithOutHome(int position){
     ),];
 }
 
-Widget customTab( String icon,String lable,bool active,  VoidCallback onSelected){
+Widget customTab( String icon,String label,bool active,  VoidCallback onSelected){
   return InkWell(
     child: Column(
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         SvgPicture.asset('assets/svg/$icon.svg',colorFilter: ColorFilter.mode(active?Colors.white:Colors.black54, BlendMode.srcIn),width: 22,height: 20,),
-        Text(lable,style: TextStyle(color: active?Colors.white:Colors.black54,fontSize: 12.5),)
+        Text(label,style: TextStyle(color: active?Colors.white:Colors.black54,fontSize: 12.5),)
       ],
     ),
     onTap: (){

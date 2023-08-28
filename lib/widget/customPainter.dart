@@ -16,7 +16,7 @@ class BNBCustomPainter extends CustomPainter {
     path.quadraticBezierTo(
         size.width * 0.38, 0, size.width * 0.40, 20); // todo left
     path.arcToPoint(Offset(size.width * 0.60, 20),
-        radius: const Radius.circular(45.0), clockwise: false); // todo center
+        radius: const Radius.circular(44.0), clockwise: false); // todo center
     path.quadraticBezierTo(
         size.width * 0.62, 0, size.width * 0.65, 0); // todo right
     path.quadraticBezierTo(size.width * 0.80, 0, size.width, 20);
